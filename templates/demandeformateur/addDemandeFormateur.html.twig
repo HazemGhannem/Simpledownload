@@ -1,0 +1,23 @@
+{% extends 'Backend/layout.html.twig' %}
+{% block header %}
+
+{% endblock %}
+
+
+{% block body %}
+
+<h1> Saisir une demande de formation </h1>
+{{ form_start(form) }}
+{{form_widget(form)}}
+{{ form_end(form) }}
+{% endblock %}
+
+{% block stylesheet %}
+    <link href="{{ asset('assets/vendor/plugins/pickers/bootstrap/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/vendor/plugins/pickers/bootstrap/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/pickers/bootstrap/locales/bootstrap-datepicker.fr.min.js') }}"></script>
+{% endblock %}
+

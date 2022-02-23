@@ -1,0 +1,86 @@
+
+
+
+<!-- Sidebar mobile toggler -->
+<div class="sidebar-mobile-toggler text-center">
+    <a href="#" class="sidebar-mobile-main-toggle">
+        <i class="icon-arrow-left8"></i>
+    </a>
+    Navigation
+    <a href="#" class="sidebar-mobile-expand">
+        <i class="icon-screen-full"></i>
+        <i class="icon-screen-normal"></i>
+    </a>
+</div>
+<!-- /sidebar mobile toggler -->
+
+<!-- Sidebar content -->
+<div class="sidebar-content">
+
+    <!-- User menu -->
+    <div class="sidebar-user">
+        <div class="card-body">
+            <div class="media">
+                <div class="mr-2">
+                    <i class="icon-star-full2 font-size-sm"></i>
+                </div>
+                <div class="media-body">
+                    {#
+                    <div class="media-title font-weight-semibold">{{ app.user.firstName }} {{ app.user.lastName|slice(0, 1) }}.</div>
+                    <div class="font-size-xs opacity-50">
+                        {{ helpers.roles(app.user.roles) }}
+                    </div>
+                    #}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /user menu -->
+
+
+    <!-- Main navigation -->
+    <div class="card card-sidebar-mobile">
+        <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+            {% import 'Backend/Macro/menu.html.twig' as sidebar %}
+
+            <!-- Main -->
+            <li class="nav-item-header">
+                <div class="text-uppercase font-size-xs line-height-xs">Panneau de gestion</div>
+                <i class="icon-menu" title="Application"></i>
+            </li>
+
+            {% set current_route_name = app.request.get('_route') %}
+
+            {% set sidebar_menu = application.backendSidebarMenu(current_route_name) %}
+
+            {% for item in sidebar_menu.items %}
+                <li class="nav-item {% if item.hasChildren %}nav-item-submenu{% endif %} {% if item.isActive %}nav-item-expanded nav-item-open{% endif %}">
+                    <a href="{% if not item.hasChildren %}{{ path(item.firstRoute) }}{% else %}#{% endif %}" class="nav-link{% if item.isActive and not item.hasChildren %} active{% endif %}">
+                        <i class="{{ item.icon }}"></i> <span>{{ item.name }}</span>
+                    </a>
+                    {% if item.hasChildren %}
+                        <ul class="nav nav-group-sub">
+                            {% for subItem in item.children %}
+                                <li class="nav-item">
+                                    <a href="{{ path(subItem.firstRoute) }}" class="nav-link {% if subItem.isActive %}active{% endif %}">{{ subItem.name }}</a>
+                                </li>
+                                {% if subItem.hasDivider %}
+                                    <li class="nav-item-divider"></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+            </li>
+            {% endfor %}
+
+
+
+            <!-- /main -->
+
+        </ul>
+    </div>
+    <!-- /main navigation -->
+
+</div>
+<!-- /sidebar content -->

@@ -1,0 +1,78 @@
+{% extends 'Backend/layout.html.twig' %}
+{% block header %}
+
+{% endblock %}
+{% block stylesheet %}
+    <link href="{{ asset('assets/vendor/plugins/pickers/bootstrap/bootstrap-datepicker3.min.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block body %}
+<div class="sidebar sidebar-dark sidebar-main sidebar-fixed sidebar-expand-md">
+  {% include 'Backend/Dashboard/_sidebar.html.twig' %}
+</div>
+<table class="table datatable">  
+<thead>
+          
+  <tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Mail</th>
+    <th>tel</th>
+    <th>Adresse</th>
+    <th>date de naissance</th>
+    <th>CV </th>
+    <th>supprimer</th>
+
+  </tr>
+  {% for item in form %}
+  <tr>
+
+    <td>{{item.id}}</td>
+    <td>{{item.Nom}}</td>
+    <td>{{item.Prenom}}</td>
+    <td>{{item.Mail}}</td>
+    <td>{{item.Telephone}}</td>
+    <td>{{item.Adresse}}</td>
+    <td>{{item.DateDeNaissance|date('d/m/y')}}</td>
+    <td>{{item.CV}}</td> 
+    <td><a href="{{ path('Delete_formateur',{'id':item.id})  }}"> Delete</a> </td>
+    <td><href src="{{asset('uploads/') ~ item.CV}}" ></td>
+    <td><a href="{{path('download_file',{'id':item.id})}}">Download file</a></td>
+
+    
+</tr>
+
+</thead>
+<tbody>
+</table>  
+{% endfor %}
+
+
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+    <script src="{{ asset('assets/vendor/plugins/pickers/bootstrap/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/pickers/bootstrap/locales/bootstrap-datepicker.fr.min.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,296 @@
+/**
+ * This file is part of the DAMJ Documents Projects
+ *
+ * (c) ECHO, Software development 2021
+ * @author Skander SMAOUI <ssmaoui@echo.tn>
+ *
+ */
+
+a,
+.navbar-light .navbar-text a {
+    color: #2b76a2;
+}
+
+.datetimepicker td, .datetimepicker th,
+.datepicker table tr td, .datepicker table tr th {
+    padding: 10px 15px;
+}
+.datetimepicker table tr td span {
+    margin: 8px 4px;
+    width: 29%;
+}
+.datepicker-dropdown {
+    z-index: 9999 !important;
+}
+.datetimepicker-minutes table tr td span {
+    width: 100%;
+}
+.datetimepicker-minutes .prev::after,
+.datetimepicker-hours .prev::after,
+.datetimepicker-days .prev::after {
+    content:'\edc7';
+    font-family:icomoon;
+    display:inline-block;
+    font-size:1rem;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;    
+    margin: 8px 10px 0 0;
+}
+.datetimepicker-minutes .next::after,
+.datetimepicker-hours .next::after,
+.datetimepicker-days .next::after {
+    content:'\edc5';
+    font-family:icomoon;
+    display:inline-block;
+    font-size:1rem;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;    
+    margin: 8px 10px 0 0;
+}
+
+.select2-selection--multiple .select2-selection__clear {
+    position:relative;
+    cursor:pointer;
+    float:right;
+    font-size:0;
+    line-height:1;
+    margin-top:.12502rem;
+    margin-left:.625rem;
+    opacity:.75;
+    transition:opacity ease-in-out .15s
+}
+
+.select2-selection--multiple .select2-selection__clear:hover {
+    opacity:1
+}
+.select2-selection--multiple .select2-selection__clear:after {
+    content:'\ed6b';
+    font-family:icomoon;
+    display:inline-block;
+    font-size:1rem;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;    
+    margin: 8px 10px 0 0;
+}
+.select2-selection--multiple .select2-selection__choice {
+    background-color: #2b76a2;
+}
+.select2-selection--multiple .select2-selection__choice:focus, .select2-selection--multiple .select2-selection__choice:hover {
+    background-color: #066690;
+}
+
+.select2-results__option[aria-selected="true"]{
+    background-color: #2b76a2;
+}
+.select2-selection__rendered,
+.select2-results__option {
+    text-transform: capitalize;
+}
+.stock-conditions .nav-tabs .nav-item.show .nav-link, 
+.stock-conditions .nav-tabs .nav-link.active {
+    background-color : transparent  !important;
+    border-color: transparent !important;
+    font-weight: bold;
+}
+
+.sidebar-dark .nav-sidebar > .nav-item-open > .nav-link:not(.disabled), .sidebar-dark .nav-sidebar > .nav-item > .nav-link.active, .sidebar-light .card[class*="bg-"]:not(.bg-light):not(.bg-white):not(.bg-transparent) .nav-sidebar > .nav-item-open > .nav-link:not(.disabled), .sidebar-light .card[class*="bg-"]:not(.bg-light):not(.bg-white):not(.bg-transparent) .nav-sidebar > .nav-item > .nav-link.active {
+    background-color: #7ac142;
+}
+
+legend.col-form-label {
+    margin-bottom: 15px;
+}
+
+label, legend {
+    font-weight: bold;
+    display: block;
+}
+label.error{
+    font-weight: normal;
+    color: #bd2130;
+    font-size: 11px;
+}
+
+label.required::after, legend.required::after {
+    content: "*";
+    padding-left: 3px;
+    color: #bd2130;
+}
+.form-group-collection > fieldset {
+    margin: 0;
+}
+.form-group-collection > fieldset > div {
+    justify-content: space-between;
+    display: flex;
+}
+.navbar-brand img{
+    height: 1.7rem;
+}
+.navbar-brand {
+    padding-top: 0.7rem;
+    padding-bottom: 0.6rem;
+}
+.navbar-text {
+    font-size: 11px;
+}
+
+.blockquote{
+    font-size: 13px;
+}
+
+.blockquote > p {
+    margin: 0;
+}
+
+.blockquote > p:after,
+.blockquote > p:before{
+    content: '"';
+    padding: 0 5px;
+    font-size: 16px;
+}
+.hidden {
+    display: none;
+}
+
+.btn-float > span {
+    width: 75px;
+}
+
+.btn-float {
+    white-space: inherit;
+    line-height: 1.1;
+}
+.price {
+    color: #000000;
+}
+.price:after {
+    content : 'DT';
+    margin-left: 2px;
+    position: relative;
+    bottom: 1px;
+    font-size: .8em;
+    line-height: .8em;
+    vertical-align:super;
+    text-decoration:none;
+}
+.log {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    line-height: 12px;
+}
+.card-img-actions {
+    min-height: 115px;
+    background: no-repeat center center; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.pagination {
+    padding: 10px;
+}
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #546E7A;
+    border-color: #546E7A;
+}
+.page-item .page-link:hover {
+    color: #fff;
+    background-color: #7ac142;
+    border-color: #7ac142;
+}
+
+@media (min-width:1000px) {
+
+    .sidebar-float {
+        position: fixed;
+        top: 205px;
+        width: 300px;
+    }
+
+}
+
+.form-custom-actions {
+    margin-bottom: .5rem;
+}
+.form-custom-actions label {
+    margin: 0;
+    padding-left: .5rem;
+    font-weight: normal;
+    font-size: .75rem;
+}
+
+.list-words-inline > div {
+    display: inline-block;
+}
+.list-words-inline > div:not(:last-child):after {
+    content : ', ';
+}
+.form-group-collection > fieldset {
+    background: #f5f5f5;
+    margin-bottom: 12px;
+    padding: 12px 4px 0 12px;
+    border: solid 1px #e5e5e5;
+    border-radius: 2px;
+}
+.form-group-collection.surveyQuestions > fieldset > div > div {
+    padding-right: 16px;
+    width: 170px;
+}
+.form-group-collection.surveyQuestions > fieldset > div > div:first-child {
+    width: 100%;
+}
+.form-group-collection.surveyQuestions > fieldset > div > div:last-child {
+    width: 70px;
+    padding-right: 0;
+}
+.form-group-collection > fieldset .remove-action {
+    float: right;
+    margin: 10px;
+}
+.form-group-collection.surveyPropositions > fieldset > div > div {
+    padding-right: 16px;
+    width: 70px;
+}
+.form-group-collection.surveyPropositions > fieldset > div > div:first-child {
+    width: 100%;
+}
+.table-secondary .alert-custom {
+    border-color: #795548;
+}
+.table-status-0 {
+    color: #999;
+    border-color: #777;
+    background-color: #fafafa;
+}
+.table-status-0 .alert-custom {
+    border-color: #999;
+}
+.table-status-1 {
+    color: #285b2a;
+    background-color: #e2f2e3;
+    border-color: #5ab55e;
+}
+.table-status-1 .alert-custom {
+    border-color: #285b2a;
+}
+.table-status-2 {
+    color: #ef6c00;
+    border-color: #ff9800;
+    background-color: #fff3e0;
+}
+.table-status-2 .alert-custom {
+    border-color: #ef6c00;
+}
+.table-status-3 {
+    color: #856f25;
+    border-color: #ffd957;
+    background-color: #fff8e2;
+}
+.table-status-3 .alert-custom {
+    border-color: #856f25;
+}
+.has-fixed-height {
+    height: 350px;
+}

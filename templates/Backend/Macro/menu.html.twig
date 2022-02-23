@@ -1,0 +1,24 @@
+{% macro menu_item(name, path, icon, items) %}
+
+    {% set current_route_name = app.request.get('_route') %}
+
+    {% set is_active = current_route_name == path or current_route_name starts with path %}
+
+    {% set has_subs = items|length and items is defined %}
+
+    <li class="nav-item {% if has_subs %}nav-item-submenu{% endif %} {% if is_active %}nav-item-expanded nav-item-open{% endif %}">
+        <a href="{% if not has_subs %}{{ path(path) }}{% else %}#{% endif %}" class="nav-link{% if is_active and not has_subs %} active{% endif %}">
+            <i class="{{ icon }}"></i> <span>{{ name }}</span>
+        </a>
+        {% if has_subs %}
+            <ul class="nav nav-group-sub">
+                {% for name, item_path in items %}
+                    {% set is_item_active = current_route_name == item_path or current_route_name starts with item_path %}
+                    <li class="nav-item">
+                        <a href="{{ path(item_path) }}" class="nav-link {% if is_item_active %}active{% endif %}">{{ name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endmacro %}

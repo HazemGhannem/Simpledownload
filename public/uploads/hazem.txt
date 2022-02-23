@@ -1,0 +1,19 @@
+composer create-project symfony/website-skeleton FirstProject "4.4.*"
+composer require symfony/web-server-bundle
+php bin/console server:run
+php bin/console make:controller TeacherController
+#creat database" 
+php bin/console doctrine:database:create
+"fixe database"
+php bin/console make:entity "name"
+"create migration"
+php bin/console make:migration
+"send migration"
+php bin/console doctrine:migrations:migrate
+
+
+"update a project "
+php bin/console doctrine:schema:update --force
+
+
+ token name : 50f51d600720e53ac7ff1d0cf190aaab

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Admin{% endblock %} | Panneau d'administration :: Plateform de recrutement</title>
+
+    <!-- Global stylesheets -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/icons/icomoon/styles.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/icons/material/icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/bootstrap_limitless.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/layout.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/components.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/colors.min.css') }}" rel="stylesheet" type="text/css">
+    {% block stylesheet %}{% endblock %}
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+    <!-- /global stylesheets -->
+</head>
+
+<body class="navbar-top">
+
+    <!-- Main navbar -->
+    <div class="navbar navbar-expand-md navbar-dark fixed-top">
+        {% include 'Backend/Dashboard/_navbar.html.twig' %}
+    </div>
+    <!-- /main navbar -->
+
+    <!-- Page content -->
+    <div class="page-content">
+        <!-- Main sidebar -->
+        <div class="sidebar sidebar-dark sidebar-main sidebar-fixed sidebar-expand-md">
+            {% include 'Backend/Dashboard/_sidebar.html.twig' %}
+        </div>
+                    
+        <!-- Main content -->
+        <div class="content-wrapper">
+            {% block header %}{% endblock %}
+
+            <!-- Content area -->
+            <div class="content">
+                {% if app.session.flashbag.peekAll|length > 0 %}
+                    {% for type, messages in app.session.flashbag.all %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ type ? type : 'info' }} alert-styled-left alert-arrow-left alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert"><span>×</span></button>
+                                {{ message|raw }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+
+                {% block body %}
+                {% endblock %}
+            </div>
+            <!-- /content area -->
+
+            <!-- Footer -->
+            <div class="navbar navbar-expand-lg navbar-light">
+                {% include 'Backend/Dashboard/_footer.html.twig' %}
+            </div>
+            <!-- /footer -->
+        </div>
+        <!-- /main content -->
+    </div>
+    <!-- /page content -->
+
+    <!-- Core JS files -->
+    <script src="{{ asset('assets/vendor/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/loaders/blockui.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/ui/moment/moment_locales.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/tables/datatables/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/plugins/forms/selects/select2.min.js') }}"></script>
+    <!-- /core JS files -->
+
+    <!-- Theme JS files -->
+    {% block javascripts %}{% endblock %}
+    <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    <!-- /theme JS files -->
+
+</body>
+</html>
